@@ -11,16 +11,7 @@ jobs:
     #     # Trik input: gunakan echo atau pipe untuk memasukkan input otomatis
     #     # Misal kamu mau coba input "pujoganteng"
     #     echo "pujoganteng" | ./invitation-party
-    - name: Brute next character
+    - name: Dump related strings
       run: |
-        chmod +x invitation-party
-    
-        PREFIX="ARA7{selamat_datang_di_pesta_sawit_"
-        CHARS="abcdefghijklmnopqrstuvwxyz0123456789_}"
-    
-        for (( i=0; i<${#CHARS}; i++ )); do
-          c="${CHARS:$i:1}"
-          echo "Trying: ${PREFIX}${c}"
-          echo "${PREFIX}${c}" | ./invitation-party
-          echo "----------------------"
-        done
+        strings invitation-party | grep pesta
+
