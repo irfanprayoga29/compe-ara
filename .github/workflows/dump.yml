@@ -9,6 +9,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Install LLVM
+      run: |
+        brew update
+        brew install llvm
+
+    - name: Add LLVM to PATH
+      run: echo "$(brew --prefix llvm)/bin" >> $GITHUB_PATH
+
     - name: Make binary executable
       run: chmod +x invitation-party
 
@@ -24,10 +32,10 @@ jobs:
     - name: Dump data section
       run: llvm-objdump -s --section=__data invitation-party > data.txt || true
 
-    - name: Dump text section
+    - name: Disassemble
       run: llvm-objdump -d invitation-party > disasm.txt
 
-    - name: Dump all strings
+    - name: Dump strings
       run: strings invitation-party > strings.txt
 
     - name: Upload artifacts
