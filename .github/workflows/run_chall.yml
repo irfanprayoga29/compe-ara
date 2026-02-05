@@ -13,6 +13,8 @@ jobs:
     #     echo "pujoganteng" | ./invitation-party
     - name: Brute next character
       run: |
+        chmod +x invitation-party
+    
         PREFIX="ARA7{selamat_datang_di_pesta_sawit_"
         CHARS="abcdefghijklmnopqrstuvwxyz0123456789_}"
     
