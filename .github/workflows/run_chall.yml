@@ -5,9 +5,16 @@ jobs:
     runs-on: macos-latest  # Ini kuncinya! Pakai macOS terbaru
     steps:
     - uses: actions/checkout@v3
-    - name: Berikan Permission & Run
+    # - name: Berikan Permission & Run
+    #   run: |
+    #     chmod +x invitation-party
+    #     # Trik input: gunakan echo atau pipe untuk memasukkan input otomatis
+    #     # Misal kamu mau coba input "pujoganteng"
+    #     echo "pujoganteng" | ./invitation-party
+    - name: Brute next character
       run: |
-        chmod +x invitation-party
-        # Trik input: gunakan echo atau pipe untuk memasukkan input otomatis
-        # Misal kamu mau coba input "pujoganteng"
-        echo "pujoganteng" | ./invitation-party
+        PREFIX="ARA7{selamat_datang_di_pesta_sawit_"
+        for c in a b c d e f g h i j k l m n o p q r s t u v w x y z _ 0 1 2 3 4 5 6 7 8 9 }; do
+          echo "Trying: $PREFIX$c"
+          echo "$PREFIX$c" | ./invitation-party
+          echo "----------------------"
