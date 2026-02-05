@@ -11,7 +11,7 @@ jobs:
     #     # Trik input: gunakan echo atau pipe untuk memasukkan input otomatis
     #     # Misal kamu mau coba input "pujoganteng"
     #     echo "pujoganteng" | ./invitation-party
-    - name: List symbols
+    - name: Demangle Swift symbols
       run: |
-        nm invitation-party | head -n 200
+        nm invitation-party | grep "$s" | head -n 50 | swift-demangle
 
