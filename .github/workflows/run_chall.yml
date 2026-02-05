@@ -11,7 +11,7 @@ jobs:
     #     # Trik input: gunakan echo atau pipe untuk memasukkan input otomatis
     #     # Misal kamu mau coba input "pujoganteng"
     #     echo "pujoganteng" | ./invitation-party
-    - name: Dump all strings & constants
+    - name: List symbols
       run: |
-        otool -tv invitation-party | grep -i sawit -n || true
-        otool -tv invitation-party | grep -i ara7 -n || true
+        nm invitation-party | head -n 200
+
