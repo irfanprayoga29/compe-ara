@@ -10,4 +10,4 @@ jobs:
         chmod +x invitation-party
         # Trik input: gunakan echo atau pipe untuk memasukkan input otomatis
         # Misal kamu mau coba input "pujoganteng"
-        echo "bigmo" | ./invitation-party
+        echo "pujoganteng" | ./invitation-party
