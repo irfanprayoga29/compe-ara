@@ -1,0 +1,13 @@
+name: Run CTF Challenge
+on: [push]
+jobs:
+  build:
+    runs-on: macos-latest  # Ini kuncinya! Pakai macOS terbaru
+    steps:
+    - uses: actions/checkout@v3
+    - name: Berikan Permission & Run
+      run: |
+        chmod +x invitation-party
+        # Trik input: gunakan echo atau pipe untuk memasukkan input otomatis
+        # Misal kamu mau coba input "password123"
+        echo "password123" | ./invitation-party
